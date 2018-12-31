@@ -2,7 +2,13 @@ language: elixir
 elixir:
   - '1.7.4'
 otp_release:
-  - '21.0'
+  - '20.0'
+
+script:
+  - MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email:
