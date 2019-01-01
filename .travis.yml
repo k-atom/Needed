@@ -15,7 +15,7 @@ matrix:
         - 'node'
         - '10'
       install:
-        - npm install -g codecov nyc mocha
+        - npm i -D codecov nyc mocha istanbul
       script:
         - npm run nyc-test
       after_success:
