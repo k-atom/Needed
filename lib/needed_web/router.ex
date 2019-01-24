@@ -9,18 +9,17 @@ defmodule NeededWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :browseree do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
+  pipeline :browserNeeded do
     plug :put_layout, false
-    plug :put_secure_browser_headers
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :browserError do
+    plug :put_layout, {NeededWeb.ErrorView, "404.html"}
   end
+
+  # pipeline :api do
+  #   plug :accepts, ["json"]
+  # end
 
   scope "/", NeededWeb do
     pipe_through :browser
@@ -30,9 +29,17 @@ defmodule NeededWeb.Router do
   end
 
   scope "/Needed" do
-    pipe_through :browseree
+    pipe_through :browser
+    pipe_through :browserNeeded
 
     get "/", NeededWeb.NeededController, :index
+  end
+
+  scope "/*glob", NeededWeb do
+    pipe_through :browser
+    pipe_through :browserError
+
+    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
