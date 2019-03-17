@@ -10,11 +10,7 @@ defmodule NeededWeb.Router do
   end
 
   pipeline :browserNeeded do
-    plug :put_layout, false
-  end
-
-  pipeline :browserError do
-    plug :put_layout, {NeededWeb.ErrorView, "404.html"}
+    plug :put_layout, {NeededWeb.LayoutView, "app.html"}
   end
 
   # pipeline :api do
@@ -23,23 +19,11 @@ defmodule NeededWeb.Router do
 
   scope "/", NeededWeb do
     pipe_through :browser
-
-    get "/", PageController, :index
-    # get "/Needed", NeededController, :index
-  end
-
-  scope "/Needed" do
-    pipe_through :browser
     pipe_through :browserNeeded
 
-    get "/", NeededWeb.NeededController, :index
-  end
-
-  scope "/*glob", NeededWeb do
-    pipe_through :browser
-    pipe_through :browserError
-
     get "/", PageController, :index
+    get "/login", PageController, :index
+    get "/Needed", NeededController, :index
   end
 
   # Other scopes may use custom stacks.
