@@ -1,0 +1,4 @@
+<div id="map" class="">
+
+</div>
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/needed/needed.js") %>"></script>

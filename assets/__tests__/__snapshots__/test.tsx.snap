@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header 1`] = `
+<nav
+  className="navbar navbar-light bg-light head__navbar"
+>
+  <div
+    className="navbar-brand menu"
+  >
+    <i
+      className="material-icons hamburger_menu"
+    >
+      menu
+    </i>
+  </div>
+  <a
+    className="navbar-brand"
+    href="/"
+    onClick={[Function]}
+    title="Needed"
+  >
+    <img
+      alt="Needed Logo"
+      className="head__logo"
+      src="/images/K_Logo_160x160.png"
+    />
+    Needed
+  </a>
+</nav>
+`;
