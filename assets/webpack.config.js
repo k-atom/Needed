@@ -13,30 +13,41 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-      './app.js': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js')),
-      './needed/needed.js': ['./js/needed/needed.js'].concat(glob.sync('./vendor/**/*.js')),
+      './app': ['./ts/app.tsx'].concat(glob.sync('./vendor/**/*.ts')),
+      './needed/needed': ['./ts/needed/needed.tsx']
   },
   output: {
-    filename: '[name]',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../priv/static/js')
+  },
+  resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/app.css' }),
+    new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
   ]
 });

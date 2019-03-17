@@ -13,11 +13,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "nyc-test": "nyc mocha test/**/*.js",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
-  },
-  "nyc": {
-    "exclude": []
+    "test-i": "cd ./assets && npm run test-i",
+    "jest-test": "cd ./assets && npm run jest-test",
+    "coverage": "cd ./assets && npm run coverage"
   },
   "repository": {
     "type": "git",
