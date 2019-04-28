@@ -1,7 +1,8 @@
-import * as React from "react";
-import * as renderer from "react-test-renderer";
+import React from 'react';
+import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router'
-import Header from "../ts/components/header";
+
+import Header from '../js/components/header'
 
 test('Header', () => {
   const component = renderer.create(
@@ -9,6 +10,7 @@ test('Header', () => {
       <Header />
     </MemoryRouter>
   );
+  
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

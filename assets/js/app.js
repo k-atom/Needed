@@ -1,28 +1,70 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
 import css from "../css/app.css"
-
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import dependencies
-//
-import "phoenix_html"
-
-// Import local files
-//
-// Local files can be imported directly using relative paths, for example:
-// import socket from "./socket"
 
 import React from "react";
 import ReactDOM from "react-dom";
-class Hello extends React.Component {
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+// Page
+import Header from "./components/header";
+
+// JS
+import loadScript from '../vendor/loadJS_module';
+
+class App extends React.Component {
   render() {
-    return "Hello Recat";
+    return (
+      <Router>
+        <div>
+          <Header />
+          <Route exact path="/" component={Home}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/needed" component={Needed}/>
+        </div>
+      </Router>
+    )
   }
 }
 
-let mountNode = document.getElementById("app");
-ReactDOM.render(<Hello />, mountNode);
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello React!</h1>
+        <Link to="/login">Login</Link>
+        <Link to="/needed">Needed</Link>
+      </div>
+    )
+  }
+}
+
+class Login extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello Boring Login Page!</h1>
+        <Link to="/">Home</Link>
+        {loadScript('/js/needed/needed.js')}
+      </div>
+    )
+  }
+}
+
+class Needed extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>What do you need ?</h1>
+        {loadScript('/js/needed/needed.js')}
+      </div>
+    )
+  }
+}
+
+// class Hello extends React.Component {
+//   render() {
+//     return "Hello Recat";
+//   }
+// }
+
+let mountNode = document.getElementById("k-browser");
+ReactDOM.render(<App />, mountNode);
