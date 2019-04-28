@@ -13,15 +13,15 @@ module.exports = (env, options) => ({
     ]
   },
   entry: {
-      './app': ['./ts/app.tsx'].concat(glob.sync('./vendor/**/*.ts')),
-      './needed/needed': ['./ts/needed/needed.tsx']
+      './app': ['./js/app.js'].concat(glob.sync('./vendor/**/*.js')),
+      './needed/needed': ['./js/needed/needed.js']
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../priv/static/js')
   },
   resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.json']
+      extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
   },
   module: {
     rules: [
