@@ -1,12 +1,10 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router'
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
-import Header from "../js/components/header";
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -19,10 +17,3 @@ storiesOf('Button', module)
       </span>
     </Button>
   ));
-
-storiesOf('Head', module)
-  .add('with text', () =>
-    <MemoryRouter>
-      <Header />
-    </MemoryRouter>
-  );
