@@ -1,7 +1,8 @@
-import css from "../css/app.css"
+import "../css/app.scss";
 
-import React from "react";
-import ReactDOM from "react-dom";
+// NPM module
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // Page
@@ -9,6 +10,8 @@ import Header from "./components/header";
 
 // JS
 import loadScript from '../vendor/loadJS_module';
+
+console.log('use tsx success');
 
 class App extends React.Component {
   render() {
@@ -31,6 +34,7 @@ class Home extends React.Component {
       <div>
         <h1>Hello React!</h1>
         <Link to="/login">Login</Link>
+        <br />
         <Link to="/needed">Needed</Link>
       </div>
     )
@@ -43,7 +47,6 @@ class Login extends React.Component {
       <div>
         <h1>Hello Boring Login Page!</h1>
         <Link to="/">Home</Link>
-        {loadScript('/js/needed/needed.js')}
       </div>
     )
   }
@@ -59,12 +62,6 @@ class Needed extends React.Component {
     )
   }
 }
-
-// class Hello extends React.Component {
-//   render() {
-//     return "Hello Recat";
-//   }
-// }
 
 let mountNode = document.getElementById("k-browser");
 ReactDOM.render(<App />, mountNode);
