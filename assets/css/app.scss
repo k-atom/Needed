@@ -1,1 +1,11 @@
+@import "ripple.scss";
 
+.n-browser {
+  min-height: 100vh;
+}
+
+.n-container {
+  background-color: #fbfbfb;
+  display: flex;
+  padding: 0 32px;
+}

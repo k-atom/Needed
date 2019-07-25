@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import "../css/app.scss";
 
 // NPM module
@@ -5,23 +6,53 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-// Page
+// Components
 import Header from "./components/header";
+import Sidebar from "./components/sidebar";
+
+// Page
 
 // JS
 import loadScript from '../vendor/loadJS_module';
 
-console.log('use tsx success');
+interface State {
+  sidebarOpen: boolean
+}
 
-class App extends React.Component {
+class App extends React.Component<{}, State> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      sidebarOpen: true
+    };
+
+    this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
+  }
+
+  SetSidebarOpen(open: boolean): void {
+    this.setState({
+      sidebarOpen: open
+    });
+    console.log(open)
+  }
+
   render() {
+    const sidebarProps = {
+      opened: this.state.sidebarOpen
+    };
+
     return (
       <Router>
-        <div>
-          <Header />
-          <Route exact path="/" component={Home}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/needed" component={Needed}/>
+        <div className="">
+          <Header SetSidebarOpen={this.SetSidebarOpen}/>
+          <div className="n-container">
+            <p>{this.state.sidebarOpen}</p>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/needed" component={Needed}/>
+          </div>
+          <Sidebar SetSidebarOpen={this.SetSidebarOpen} {...sidebarProps}/>
         </div>
       </Router>
     )
@@ -63,5 +94,7 @@ class Needed extends React.Component {
   }
 }
 
-let mountNode = document.getElementById("k-browser");
+let mountNode = document.getElementById("n-browser");
 ReactDOM.render(<App />, mountNode);
+
+export default App;

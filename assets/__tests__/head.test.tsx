@@ -4,10 +4,16 @@ import { MemoryRouter } from 'react-router'
 
 import Header from '../ts/components/header'
 
-test('Header', () => {
+
+const SetSidebarOpen = (open: boolean) => {
+  console.log(open)
+};
+
+
+test('Header deafault', () => {
   const component = renderer.create(
     <MemoryRouter>
-      <Header />
+      <Header SetSidebarOpen={SetSidebarOpen} />
     </MemoryRouter>
   );
 
