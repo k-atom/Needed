@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header 1`] = `
+exports[`Header deafault 1`] = `
 <nav
-  className="navbar navbar-light bg-light head__navbar"
+  className="navbar navbar-light head__navbar"
 >
   <div
-    className="navbar-brand menu"
+    className="navbar-brand icon-block"
   >
     <i
-      className="material-icons hamburger_menu"
+      className="material-icons icon ripple"
+      onClick={[Function]}
     >
       menu
     </i>

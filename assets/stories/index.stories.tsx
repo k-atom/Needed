@@ -4,9 +4,14 @@ import { storiesOf } from '@storybook/react';
 
 import Header from '../ts/components/header';
 
+export const SetSidebarOpen = (open: boolean) => {
+  console.log(open);
+};
+
+
 storiesOf('Head', module)
-  .add('head', () => (
+  .add('default', () => (
     <MemoryRouter>
-      <Header />
+      <Header SetSidebarOpen={SetSidebarOpen} />
     </MemoryRouter>
   ));
