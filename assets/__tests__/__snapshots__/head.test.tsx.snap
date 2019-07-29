@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header deafault 1`] = `
+exports[`Header Header 1`] = `
 <nav
   className="navbar navbar-light head__navbar"
 >
