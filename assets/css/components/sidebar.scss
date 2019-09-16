@@ -43,11 +43,12 @@ $animation-speed: .2s;
  *************/
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  animation-name: close;
   animation-duration: $animation-speed;
   animation-fill-mode: forwards;
+  animation-name: close;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
 
 
   .sidebar__container {

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapComponent Check node of MapComponent 1`] = `"<div class=\\"mapComponent bottom right\\"><button title=\\"定位當前位置\\" type=\\"button\\" class=\\"ant-btn btn\\"><i class=\\"material-icons\\">my_location</i></button></div>"`;

@@ -3,6 +3,7 @@ import "../css/app.scss";
 
 // NPM module
 import * as React from "react";
+import { Suspense, lazy } from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -11,9 +12,7 @@ import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 
 // Page
-
-// JS
-import loadScript from '../vendor/loadJS_module';
+const Needed = lazy(() => import('./needed/needed'));
 
 interface State {
   sidebarOpen: boolean
@@ -24,7 +23,7 @@ class App extends React.Component<{}, State> {
     super(props);
 
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: false
     };
 
     this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
@@ -34,7 +33,6 @@ class App extends React.Component<{}, State> {
     this.setState({
       sidebarOpen: open
     });
-    console.log(open)
   }
 
   render() {
@@ -47,10 +45,11 @@ class App extends React.Component<{}, State> {
         <div className="">
           <Header SetSidebarOpen={this.SetSidebarOpen}/>
           <div className="n-container">
-            <p>{this.state.sidebarOpen}</p>
-            <Route exact path="/" component={Home}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/needed" component={Needed}/>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Route exact path="/" component={Home}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/needed" component={Needed}/>
+            </Suspense>
           </div>
           <Sidebar SetSidebarOpen={this.SetSidebarOpen} {...sidebarProps}/>
         </div>
@@ -78,17 +77,6 @@ class Login extends React.Component {
       <div>
         <h1>Hello Boring Login Page!</h1>
         <Link to="/">Home</Link>
-      </div>
-    )
-  }
-}
-
-class Needed extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>What do you need ?</h1>
-        {loadScript('/js/needed/needed.js')}
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
-import Header from '../ts/components/header'
+import Header from '../../ts/components/header'
 
 
 const SetSidebarOpen = (open: boolean) => {

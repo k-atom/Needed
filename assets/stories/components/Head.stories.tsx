@@ -2,12 +2,12 @@ import * as React from 'react';
 import { MemoryRouter } from 'react-router';
 import { storiesOf } from '@storybook/react';
 
-import Header from '../ts/components/header';
+import Header from '../../ts/components/header';
 
-export const SetSidebarOpen = (open: boolean) => {
+
+const SetSidebarOpen = (open: boolean): void => {
   console.log(open);
-};
-
+}
 
 storiesOf('Head', module)
   .add('default', () => (

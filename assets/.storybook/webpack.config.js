@@ -9,7 +9,7 @@ module.exports = ({ config }) => {
       ],
     },
     {
-      test: /\.(sa|sc|c)ss$/,
+      test: /\.(sa|sc)ss$/,
       use: [
         "style-loader", // creates style nodes from JS strings
         "css-loader", // translates CSS into CommonJS
