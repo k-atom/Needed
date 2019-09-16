@@ -14,14 +14,15 @@ module.exports = (env, options) => ({
   },
   entry: {
     './app': ['./ts/app.tsx'].concat(glob.sync('./vendor/**/*.ts')),
-    './needed/needed': ['./ts/needed/needed.tsx']
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../priv/static/js')
+    chunkFilename: 'js/[name].js',
+    filename: 'js/[name].js',
+    path: path.resolve(__dirname, '../priv/static'),
+    publicPath: './'
   },
   resolve: {
-      extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
   },
   module: {
     rules: [
@@ -43,11 +44,24 @@ module.exports = (env, options) => ({
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images',
+              publicPath: '../images',
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '../css/[name].css' }),
-    new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
+    new MiniCssExtractPlugin({ filename: './css/[name].css' }),
+    new CopyWebpackPlugin([{ from: 'static/', to: './' }])
   ]
 });

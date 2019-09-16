@@ -2,6 +2,7 @@
   background-color: #fff;
   position: sticky;
   top: 0;
+  z-index: 9999;
 
   &::after {
     bottom: -5px;

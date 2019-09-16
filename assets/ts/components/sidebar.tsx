@@ -20,7 +20,6 @@ class Sidebar extends React.Component<Props, States> {
   }
 
   componentWillMount() {
-    console.log(this.props);
   }
 
   SetSidebarOpen() {
