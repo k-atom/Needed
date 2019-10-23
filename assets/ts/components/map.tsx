@@ -101,72 +101,9 @@ function MapContainer(previous: MapContainerPrevious) {
     * Set functions for Map component of React-Leaflet-Draw
     */
 
-  const _deleteShape = (id: number)  => {
-    const item = elementsById.get(id);
-    if (!item) {
-      console.log('No matching item, perhaps a race? skip')
-      return;
-    }
-
-    const newMap = new Map(elementsById.entries());
-    newMap.delete(id);
-    setElementsById(newMap);
-  };
-
-  const _getHighestId = () => {
-    return Math.max(...elementsById.keys() as any) | 0;
-  };
-
   const _handleCreated = (evt: any) => {
     const {lat: evtLat, lng: evtLng} = evt.layer.getLatLng();
     previous.fn.setPosition([evtLat, evtLng]);
-  };
-
-  const _handleDeleted = (elem: any, layer: any, evt: any) => {
-    const id = Number.parseInt(elem.key);
-    _deleteShape(id);
-  };
-
-  const _handleEdited = (elem: any, layer: any, evt: any) => {
-    const id = Number.parseInt(elem.key);
-    const item = elementsById.get(id);
-    if (!item) {
-      console.log('No matching item, perhaps a race? skip')
-      return;
-    }
-
-    const layerType = item.type;
-    const newMap = new Map(elementsById.entries());
-    const newId = _getHighestId() + 1;
-    const newProps = {
-      polygon: (l: any) => ({ positions: l.getLatLngs() }),
-      polyline: (l: any) => ({ positions: l.getLatLngs() }),
-      circlemarker: (l: any) => ({ center: l.getLatLng(), radius: l.getRadius() }),
-      marker: (l: any) => ({ position: l.getLatLng() }),
-      circle: (l: any) => ({ center: l.getLatLng(), radius: l.getRadius() }),
-      rectangle: (l: any) => null // copy existing item
-    }[layerType](layer);
-
-    newMap.set(newId, { type: layerType, ...newProps });
-    newMap.delete(id);
-
-    setElementsById(newMap);
-  };
-
-  const _handleActivityStarted = (e: any) => {
-    console.log('started', e);
-    const { flagStartedEditing } = previous as any;
-    if (flagStartedEditing) {
-      flagStartedEditing();
-    }
-  };
-
-  const _handleActivityStopped = (e: any) => {
-    console.log('stopped', e);
-    const { flagStoppedEditing } = previous as any;
-    if (flagStoppedEditing) {
-      flagStoppedEditing();
-    }
   };
 
   /**
@@ -224,10 +161,6 @@ function MapContainer(previous: MapContainerPrevious) {
         <EditControlFeatureGroup
           controlProps={controlSettings}
           onCreated={_handleCreated}
-          onEdited={_handleEdited}
-          onDeleted={_handleDeleted}
-          onActivityStarted={_handleActivityStarted}
-          onActivityStopped={_handleActivityStopped}
           ref={editControlFeatureGroupRef}
         >
           {[...elementsById.keys() as any].map(id => {
