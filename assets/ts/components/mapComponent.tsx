@@ -1,7 +1,14 @@
+/**
+  * Import modules
+  */
 import * as React from "react";
 import { Button } from 'antd';
 
+/**
+  * Import lib
+  */
 import * as geolocation from '../lib/geolocation';
+
 
 interface MapComponentPrevious {
   fn: {
@@ -9,8 +16,11 @@ interface MapComponentPrevious {
   }
 }
 
+
+/**
+  * MapComponent hook
+  */
 function MapComponent(previous: MapComponentPrevious) {
-  let geoObj: any;
 
   const geoSuccess = (e: any) => {
     previous.fn.setPosition([
@@ -24,12 +34,12 @@ function MapComponent(previous: MapComponentPrevious) {
 
   const getLocation = () => {
     geolocation.createGeolocation().then((e) => {
-      geoObj = e;
+      let geoObj: any = e;
       geoObj.getCurrentPosition(geoSuccess, geoError);
     })
-    .catch((e) => {
+    .catch((e: any) => {
     });
-  }
+  };
 
   return (
     <div className="mapComponent bottom right">

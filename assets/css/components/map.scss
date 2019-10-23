@@ -23,12 +23,17 @@
 
   .btn {
     display: flex;
+    height: 38px;
     justify-content: center;
-    padding: 1px 8px;
+    padding: 0 8px;
   }
 }
 
 .mapContainer {
-  height: 400px;
+  height: 100%;
   width: 100%;
+}
+
+.sr-only {
+  display: none;
 }

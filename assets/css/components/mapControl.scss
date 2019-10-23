@@ -1,0 +1,51 @@
+.mapControl {
+  padding: 12px;
+
+  .items {
+
+    .container {
+      align-items: center;
+
+      div + div {
+        margin-top: 4px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .btn {
+        display: flex;
+        height: 38px;
+        padding: 0 12px;
+      }
+
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin: 12px;
+
+      .ant-input-number {
+        min-width: 130px;
+        width: 70%;
+
+        .ant-input-number-handler-wrap {
+          display: none;
+        }
+      }
+
+      label {
+        margin-right: 8px;
+        text-align: right;
+        width: 32px;
+      }
+    }
+  }
+}
