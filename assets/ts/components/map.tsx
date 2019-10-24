@@ -78,7 +78,7 @@ const controlSettings = {
   * MapContainer hook
   */
 function MapContainer(previous: MapContainerPrevious) {
-  // Provides to the viewport
+  // Store the last value of the viewport
   const [zoom, setZoom] = useState<number>(previous.zoom);
   // elementsById stores all draw
   const [elementsById, setElementsById] = useState<Map<any, any>>(new Map());
