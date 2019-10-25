@@ -27,6 +27,7 @@
     }
 
     .row {
+      align-items: center;
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
@@ -42,6 +43,7 @@
       }
 
       label {
+        margin-bottom: 0;
         margin-right: 8px;
         text-align: right;
         width: 32px;
