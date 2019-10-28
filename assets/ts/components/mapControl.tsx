@@ -49,10 +49,12 @@ function MapControl(previous: MapControlPrevious) {
   const changePosition = (e: any) => {
     switch (e.target.id) {
       case 'lat':
+        +e.target.value == position[0] ||
         !checkLatRange(e.target.value) ||
         previous.fn.setPosition([Number(e.target.value), position[1]]);
         break;
       case 'lng':
+        +e.target.value == position[1] ||
         !checkLngRange(e.target.value) ||
         previous.fn.setPosition([position[0], Number(e.target.value)]);
         break;
