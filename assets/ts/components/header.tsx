@@ -4,7 +4,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
-  SetSidebarOpen: (event: boolean) => void
+  SetSidebarOpen: (event: boolean) => void;
 }
 
 class Header extends React.Component<Props, {}> {
@@ -32,7 +32,7 @@ class Header extends React.Component<Props, {}> {
           Needed
         </Link>
       </nav>
-    )
+    );
   }
 }
 

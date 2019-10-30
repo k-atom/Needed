@@ -4,6 +4,12 @@ module.exports = ({ config }) => {
       test: /\.(ts|tsx)$/,
       use: [
         {
+          loader: 'babel-loader'
+        },
+        {
+          options: {
+            configFileName: './.storybook/tsconfig.json',
+          },
           loader: require.resolve('awesome-typescript-loader'),
         }
       ],

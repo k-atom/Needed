@@ -12,8 +12,8 @@ import * as geolocation from '../lib/geolocation';
 
 interface MapComponentPrevious {
   fn: {
-    setPosition: (arr: [number, number]) => void
-  }
+    setPosition: (arr: [number, number]) => void;
+  };
 }
 
 
@@ -49,7 +49,7 @@ function MapComponent(previous: MapComponentPrevious) {
         </i>
       </Button>
     </div>
-  )
+  );
 }
 
 export default MapComponent;

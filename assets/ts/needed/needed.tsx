@@ -83,7 +83,7 @@ function Needed() {
       <MapContainer {...MapContainerPrevious} />
       <MapControl {...MapControlPrevious}/>
     </div>
-  )
+  );
 }
 
 export default Needed;

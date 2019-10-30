@@ -34,17 +34,17 @@ import MapComponent from './mapComponent';
   * Previous Interface
   */
 interface MapContainerPrevious {
-  lat: number,
-  lng: number,
-  position: [number, number],
-  zoom: number,
+  lat: number;
+  lng: number;
+  position: [number, number];
+  zoom: number;
   fn: {
     setLat: (lat: number) => void,
     setLng: (lng: number) => void,
     setPosition: (arr: [number, number]) => void,
     setZoom: (zoom: number) => void
-  },
-  MapControlRef: any
+  };
+  MapControlRef: any;
 }
 
 
@@ -128,6 +128,7 @@ function MapContainer(previous: MapContainerPrevious) {
   useEffect(() => {
     // Set a new position for elementsById
     const newMap = new Map(elementsById.entries());
+
     newMap.set(0, {
       type: 'marker',
       position: previous.position
@@ -173,12 +174,12 @@ function MapContainer(previous: MapContainerPrevious) {
               circle: Circle,
               rectangle: Rectangle
             }[type]
-            return <Element key={id} {...props} editing={true}/>
+            return <Element key={id} {...props} editing={true}/>;
           })}
         </EditControlFeatureGroup>
       </LeafletMap>
     </div>
-  )
+  );
 }
 
 export default MapContainer;

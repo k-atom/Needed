@@ -11,15 +11,15 @@ import { Button, Divider, Icon, InputNumber } from 'antd';
 
 
 interface MapControlPrevious {
-  lat: number,
-  lng: number,
-  position: [number, number],
+  lat: number;
+  lng: number;
+  position: [number, number];
   fn: {
-    setLat: (lat: number) => void,
-    setLng: (lng: number) => void,
-    setPosition: (arr: [number, number]) => void,
+    setLat: (lat: number) => void;
+    setLng: (lng: number) => void;
+    setPosition: (arr: [number, number]) => void;
     _drawMarker: (e: any) => void;
-  }
+  };
 }
 
 
@@ -71,7 +71,11 @@ function MapControl(previous: MapControlPrevious) {
       <div className="items">
         <div className="container">
           <div className="row">
-            <Button className="btn" title="設置位置" onClick={previous.fn._drawMarker}>
+            <Button
+              className="btn"
+              title="設置位置"
+              onClick={previous.fn._drawMarker}
+            >
               <Icon type="environment" />
             </Button>
           </div>
@@ -110,7 +114,7 @@ function MapControl(previous: MapControlPrevious) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default MapControl;
