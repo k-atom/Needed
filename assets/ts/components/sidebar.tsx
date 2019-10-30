@@ -4,8 +4,8 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
-  opened: boolean,
-  SetSidebarOpen: (open: boolean) => void
+  opened: boolean;
+  SetSidebarOpen: (open: boolean) => void;
 }
 
 interface States {
@@ -39,7 +39,7 @@ class Sidebar extends React.Component<Props, States> {
         </div>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 
@@ -100,7 +100,7 @@ class Container extends React.Component<ContainerProps, {}> {
           </Link>
         </div>
       </div>
-    )
+    );
   }
 }
 

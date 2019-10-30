@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
-import { MemoryRouter } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { mount } from 'enzyme';
 
 import MapComponent from '../../ts/components/mapComponent';
 
@@ -56,6 +54,9 @@ describe('MapComponent', () => {
     component.find('Button').props().onClick({} as any);
   });
   it('Should not get geoLocation', () => {
+    component.find('Button').props().onClick({} as any);
+  });
+  it('Should not create geoLocation', () => {
     (window.navigator.geolocation as any) = undefined;
     component.find('Button').props().onClick({} as any);
   });

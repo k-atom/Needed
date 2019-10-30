@@ -39,13 +39,28 @@ let previous = {
     setLng: setLng,
     setPosition: setPosition,
     setZoom: setZoom
-  }
+  },
+  MapControlRef: {}
 }
 
+function SnapContainer() {
+  previous.MapControlRef = React.useRef();
+
+  return (
+    <div
+      style={{
+        height: '100vh',
+        width: '100vw'
+      }}
+    >
+      <MapContainer {...previous} />
+    </div>
+  );
+}
 
 storiesOf('Map', module)
   .add('default', () => (
     <MemoryRouter>
-      <MapContainer {...previous}/>
+      <SnapContainer />
     </MemoryRouter>
   ));
