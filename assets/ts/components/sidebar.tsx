@@ -19,9 +19,6 @@ class Sidebar extends React.Component<Props, States> {
       this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
   }
 
-  componentWillMount() {
-  }
-
   SetSidebarOpen() {
       this.props.SetSidebarOpen(false);
   }
@@ -53,9 +50,6 @@ class Container extends React.Component<ContainerProps, {}> {
 
     if (typeof this.props.SetSidebarOpen === 'function')
       this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
-  }
-
-  componentWillMount() {
   }
 
   SetSidebarOpen() {
