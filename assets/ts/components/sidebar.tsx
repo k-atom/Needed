@@ -72,20 +72,20 @@ class Container extends React.Component<ContainerProps, {}> {
           </Link>
         </nav>
         <div className="navbar list">
-          <Link className="navbar-brand item" title="Needed" to="/">
+          <Link className="navbar-brand item ripple" title="Home" to="/">
             <div className="navbar-brand icon-block">
               <i
-                className="material-icons icon ripple"
+                className="material-icons icon"
                 >home</i>
             </div>
             <div className="text">
               首頁
             </div>
           </Link>
-          <Link className="navbar-brand item" title="Needed" to="/Needed">
+          <Link className="navbar-brand item ripple" title="Needed" to="/Needed">
             <div className="navbar-brand icon-block">
               <i
-                className="material-icons icon ripple"
+                className="material-icons icon"
                 >add_box</i>
             </div>
             <div className="text">
