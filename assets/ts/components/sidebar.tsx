@@ -77,7 +77,7 @@ class Container extends React.Component<ContainerProps, {}> {
               首頁
             </div>
           </Link>
-          <Link className="navbar-brand item ripple" title="Needed" to="/Needed">
+          <Link className="navbar-brand item ripple" title="Needed" to="/needed">
             <div className="navbar-brand icon-block">
               <i
                 className="material-icons icon"
