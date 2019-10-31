@@ -11,8 +11,8 @@ defmodule NeededWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "n-browser"
   end
 
-  test "GET /Needed", %{conn: conn} do
-    conn = get(conn, "/Needed")
+  test "GET /needed", %{conn: conn} do
+    conn = get(conn, "/needed")
     assert html_response(conn, 200) =~ "n-browser"
   end
 end
