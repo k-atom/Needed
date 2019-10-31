@@ -70,7 +70,7 @@ describe('Sidebar', () => {
     reactWrapper = reactWrapper.find('a');
     expect(reactWrapper).toHaveLength(2);
     expect(reactWrapper.at(0).prop('href')).toEqual('/');
-    expect(reactWrapper.at(1).prop('href')).toEqual('/Needed');
+    expect(reactWrapper.at(1).prop('href')).toEqual('/needed');
     // Text of Navbar list
     expect(reactWrapper.at(0).find('div.text')).toHaveLength(1);
     expect(reactWrapper.at(0).find('div.text').text()).toEqual('首頁');
