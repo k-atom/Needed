@@ -4,19 +4,15 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 interface Props {
-  opened: boolean;
+  opened?: boolean;
   SetSidebarOpen: (open: boolean) => void;
 }
 
-interface States {
-}
-
-class Sidebar extends React.Component<Props, States> {
+class Sidebar extends React.Component<Props, {}> {
   constructor(props: any) {
     super(props);
 
-    if (typeof this.props.SetSidebarOpen === 'function')
-      this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
+    this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
   }
 
   SetSidebarOpen() {
@@ -25,7 +21,7 @@ class Sidebar extends React.Component<Props, States> {
 
   render() {
     return (
-      <div className="sidebar" data-opened={this.props.opened || false}>
+      <div className="sidebar" data-opened={!!this.props.opened || false}>
         <div
           className="sidebar__background"
           onClick={this.SetSidebarOpen}
@@ -48,8 +44,7 @@ class Container extends React.Component<ContainerProps, {}> {
   constructor(props: any) {
     super(props);
 
-    if (typeof this.props.SetSidebarOpen === 'function')
-      this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
+    this.SetSidebarOpen = this.SetSidebarOpen.bind(this);
   }
 
   SetSidebarOpen() {
