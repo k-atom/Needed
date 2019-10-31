@@ -23,7 +23,7 @@ defmodule NeededWeb.Router do
 
     get "/", PageController, :index
     get "/login", PageController, :index
-    get "/Needed", NeededController, :index
+    get "/needed", PageController, :index
   end
 
   # Other scopes may use custom stacks.
